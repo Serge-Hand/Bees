@@ -1,0 +1,79 @@
+{
+    "name": "PlayerInput",
+    "maps": [
+        {
+            "name": "PlayerMap",
+            "id": "72281137-32b6-4e51-a733-70b1030233cc",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "aec9aeff-f5b8-4f03-9c12-bdbd53cc45b9",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c9ecce91-bd9d-4175-a25f-8e1a19091c56",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "TouchMap",
+            "id": "dbdddb00-7e97-4094-a93c-d8d11bc701e3",
+            "actions": [
+                {
+                    "name": "Touch",
+                    "type": "Button",
+                    "id": "d0676f4a-2fc6-4ad4-945d-d3166092702e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "TouchPosition",
+                    "type": "PassThrough",
+                    "id": "ed7d5db6-77f4-41eb-b74d-165c855568cd",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "505ea463-0144-4c7f-8d56-259de4262522",
+                    "path": "<Touchscreen>/primaryTouch/press",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "12740a3d-504b-4b33-8a34-4a2d5cd524c2",
+                    "path": "<Touchscreen>/primaryTouch/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
