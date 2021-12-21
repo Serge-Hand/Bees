@@ -31,6 +31,7 @@ public class Bee : MonoBehaviour
 
     void Start()
     {
+        //events binding
         GameEvents.instance.onCollectHoney += GiveNectarAway;
         GameEvents.instance.onStopCollectHoney += StopGiveNectarAway;
         GameEvents.instance.onSpeedUp += SpeedUp;
@@ -67,21 +68,21 @@ public class Bee : MonoBehaviour
 
     void Update()
     {
-        if (swarmAttachPoint)
+        if (swarmAttachPoint) //if bee is attached to swarm
         {
-            if (!currentFlower || curNectarAmount >= maxNectarAmount)
+            if (!currentFlower || curNectarAmount >= maxNectarAmount) //move with the swarm
             {
                 MoveToObject(swarmAttachPoint, swarmStopRange);
             }
             else
             {
-                if (!MoveToObject(currentFlower.GetChild(0), flowerStopRange))
+                if (!MoveToObject(currentFlower.GetChild(0), flowerStopRange)) //move to flower when detected
                 {
-                    if ((transform.position - swarmAttachPoint.position).magnitude > maxDistanceFromSwarm)
+                    if ((transform.position - swarmAttachPoint.position).magnitude > maxDistanceFromSwarm) //return to swarm if it's too far away
                     {
                         StartCoroutine(FollowWait());
                     }
-                    else if (!isWaiting)
+                    else if (!isWaiting) //consume nectar if reached flower
                     {
                         currentFlower.GetComponent<Flower>().ConsumeNectar(nectarPerSecond);
                         GameEvents.instance.AddNectar(1);
@@ -92,7 +93,7 @@ public class Bee : MonoBehaviour
 
                         if (!(curNectarAmount >= maxNectarAmount))
                             StartCoroutine(Wait(Random.Range(0.2f, 0.8f)));
-                        else
+                        else //return to swarm if full
                             StartCoroutine(FollowWait());
                     }
                 }
